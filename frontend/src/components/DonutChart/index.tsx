@@ -13,7 +13,8 @@ const DonutChart = () => {
 
     const [chartData, setChartData] = useState<ChartData>({ labels: [], series: [] })
 
-    useEffect(() => {axios.get(`${BASE_URL}/sales/amount-by-seller`)
+    useEffect(() => {
+        axios.get(`${BASE_URL}/sales/amount-by-seller`)
         .then(response => {
 
             const data = response.data as SaleSum[];
@@ -23,12 +24,11 @@ const DonutChart = () => {
             setChartData({ labels: mylabels, series: myseries });
 
         });
-    }, [])
+    }, []);
 
 //let pq muda o dado, nao é const (contante)
 //forma errada
 //let chartData: ChartData = { labels: [], series: [] };
-//forma errada
 
 
 /*const mockData = {
